@@ -6,9 +6,9 @@ class Buttons extends StatelessWidget {
   final int fillColor;
   final int textColor;
   final double textSize;
-  final Function callBack;
+  final Function(String) callBack; // Modified to include String parameter
 
-  const Buttons({
+  const Buttons({super.key, 
     required this.text,
     required this.fillColor,
     required this.textColor,
@@ -25,7 +25,7 @@ class Buttons extends StatelessWidget {
         height: 70,
         child: TextButton(
           onPressed: () {
-            callBack();
+            callBack(text); // Pass the 'text' parameter here
           },
           style: ButtonStyle(
             shape: MaterialStateProperty.all(
